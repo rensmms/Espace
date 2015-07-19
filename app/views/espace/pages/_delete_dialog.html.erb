@@ -1,0 +1,26 @@
+<% if page.active? %>
+    <button type="button" class="btn btn-danger espace-width-button" data-toggle="modal" data-target="#myModal"><%= t("pages.link_text.delete") %></button>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><%= t("pages.confirm.delete_title") %></h4>
+          </div>
+          <div class="modal-body">
+            <p><%= t("pages.confirm.delete") %></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal"><%= t("pages.confirm.delete_cancel") %></button>
+            <%= link_to t("pages.confirm.delete_ok"), page, method: :delete, :class => "btn btn-danger" %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+<% else %>
+    <%= link_to t("pages.link_text.activate"), activate_page_path(page), :class => "btn btn-default espace-width-button" %>
+<% end %>

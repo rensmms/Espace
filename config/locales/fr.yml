@@ -1,0 +1,78 @@
+fr:
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%e %b"
+      long: "%e %B %Y"
+      long_ordinal: "%e %B %Y"
+      only_day: "%e"
+      simple_date: "%d/%m/%Y"
+      full_date: "%a %d %b %Y"
+      full_date_heure: "%a %d %b %Y, %H:%M"
+
+
+    day_names: [dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi]
+    abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
+    month_names: [~, janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre]
+    abbr_month_names: [~, jan., fév., mar., avr., mai, juin, juil., août, sept., oct., nov., déc.]
+  time:
+    formats:
+      full_date: "%a %d %b %Y"
+
+  helpers:
+    label:
+      page:
+        title: "Titre"
+        text: "Texte"
+        author_name: "Auteur"
+        created_at: "Création"
+        updated_at: "Mise à jour"
+        deleted_at: "Suppression"
+        published_at: "Publié"
+      comment:
+        text: "Commentaire"
+  pages:
+    init_message: "Il n'y a pas d'actualité. Vous pouvez créer des actualités."
+    new_message: "Créer et modifier votre page."
+    created: "crée le "
+    updated: "mise à jour le "
+    deleted: "supprimé le "
+    published: "publié le "
+    title_placeholder: "Titre de la page"
+    link_text:
+      back: "Retour"
+      ok: "Valider"
+      new: "Nouvelle page"
+      edit: "Modifier"
+      index: "Liste"
+      show: "Consulter"
+      delete: "Supprimer"
+      list: "Listes des pages"
+      wall: "Actualités"
+      activate: "Activer"
+      publish: "Public"
+      unpublish: "Privé"
+    confirm:
+      delete_title: "Suppression d'une page"
+      delete: "Voulez-vous supprimer la page?"
+      delete_cancel: "Non"
+      delete_ok: "Oui"
+    validate:
+      title: "Le titre n'est pas renseigné correctement"
+      text: "Le text n'est pas renseigné correctement"
+      author: "L'auteur n'est pas renseigné correctement"
+    sucess:
+      create: "La page est crée."
+      update: "La page est mise à jour."
+      destroy: "La page est supprimée."
+    new: "Nouvelle page"
+    edit: "Modifier la page"
+    index: "Liste des pages"
+    show: "Liste des pages"
+    wall: "Actualité"
+  comments:
+    list: "Commentaire"
+    ok: "Valider"
+    new: "Nouveau commentaire"
+    create: "Commentaire ajouté"
+    placeholder: "Un commentaire..."

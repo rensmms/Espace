@@ -1,0 +1,31 @@
+<div>
+  <small><%= t("pages.new_message") %></small>
+</div>
+<%= form_for(@page) do |f| %>
+    <% if @page.errors.any? %>
+        <div class="alert alert-danger">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+
+          <ul>
+            <% @page.errors.messages.each do |t, message| %>
+                <li><%= message[0] %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+    <div class="field">
+      <%= f.text_field :title, class: "form-control", placeholder: t("pages.title_placeholder") %>
+    </div>
+    <br>
+    <div class="field">
+      <%= f.cktext_area :text, id: "ckeditor", :ckeditor => {:toolbar => 'page', :contenteditable => "true"} %>
+    </div>
+
+
+    <div class="actions">
+      <%= link_to t("pages.link_text.back"), wall_pages_path, class: "btn btn-default" %>
+      <%= f.submit t("pages.link_text.ok"), class: "btn btn-primary" %>
+    </div>
+<% end %>

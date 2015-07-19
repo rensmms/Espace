@@ -1,0 +1,6 @@
+Selectionner l'utilisateur
+
+<%= form_tag init_user_path do %>
+    <%= select_tag :user_id, options_from_collection_for_select(Contact.all, :id, :name) %>
+    <%= submit_tag "Valider"%>
+<% end %>

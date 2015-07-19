@@ -1,0 +1,16 @@
+<div class="row">
+  <h3><%= t("pages.wall") %></h3>
+
+  <%= link_to t("pages.link_text.list"), pages_path, :class => "btn btn-default" %>
+  <br>
+
+  <div>
+    <% if @pages.empty? %>
+        <div class="alert alert-info"> <%= t("pages.init_message") %>
+          <%= link_to t("pages.link_text.new"), new_page_path, class: "btn btn-primary" %>
+        </div>
+    <% else %>
+        <%= render @pages %>
+    <% end %>
+  </div>
+</div>

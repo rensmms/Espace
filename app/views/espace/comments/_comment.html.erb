@@ -1,0 +1,15 @@
+<div class="media thumbnail">
+  <div class="media-left">
+    <a href="#">
+      <div style="height: 70px; width: 70px;background-color: lightgrey"></div>
+    </a>
+  </div>
+  <div class="media-body">
+    <h7 class="media-heading">
+      <%= comment.creator.name unless comment.creator.nil? %>     <%= l comment.created_at, format: :full_date %></h7>
+    <div>
+      <%= comment.text.html_safe %>
+    </div>
+  </div>
+</div>
+

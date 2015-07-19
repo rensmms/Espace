@@ -1,0 +1,11 @@
+<div class="media thumbnail hidden-print">
+  <%= form_for [@page, @page.comments.build] do |f| %>
+      <p>
+        <%= f.text_area :text, id: "ckeditor", :placeholder => t("comments.placeholder"), class: "form-control" %>
+      </p>
+      <%= link_to t("pages.link_text.wall"), wall_pages_path, class: "btn btn-default" %>
+      <%= link_to t("pages.link_text.back"), wall_pages_path, :class => "btn btn-default" %>
+      <%= f.submit t("comments.ok"), :class => "btn btn-primary" %>
+  <% end %>
+</div>
+

@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="">
+    <div class="thumbnail">
+      <div class="caption">
+        <div class="pull-right"><%= link_to t("pages.link_text.show"), page, class: "btn btn-primary" %>  </div>
+        <p><%= l page.created_at, format: :full_date %> <span class="badge"><%= page.comments.count %></span></p>
+
+        <h3><%= page.title %></h3>
+
+
+        <div class="espace-limit-height"><%= Rails.cache.fetch(page.path_cache){page.text.html_safe} %></div>
+      </div>
+    </div>
+  </div>
+</div>

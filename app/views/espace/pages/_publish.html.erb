@@ -1,0 +1,5 @@
+<%= if page.published?
+      link_to t("pages.link_text.publish"), unpublish_page_path(page), :class => "btn btn-info espace-width-button"
+    else
+      link_to t("pages.link_text.unpublish"), publish_page_path(page), :class => "btn btn-default espace-width-button"
+    end %>

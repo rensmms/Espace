@@ -1,0 +1,46 @@
+<%= render partial: "espace/pages/notice" %>
+
+
+<div class="row">
+  <h3><%= t("pages.index") %></h3>
+
+  <%= link_to t("pages.link_text.new"), new_page_path, class: "btn btn-primary" %>
+  <%= link_to t("pages.link_text.wall"), wall_pages_path, class: "btn btn-default" %>
+
+  <table class="table" <%= btable_parameters %>>
+    <thead>
+    <tr>
+      <th></th>
+      <th>  <%= label :page, :created_at %></th>
+      <th>  <%= label :page, :updated_at %></th>
+      <th>  <%= label :page, :published_at %></th>
+      <th>  <%= label :page, :deleted_at %></th>
+      <th>  <%= label :page, :title %></th>
+      <th>  <%= label :page, :text %></th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @pages.each do |page| %>
+        <tr>
+          <td class="col-md-1"><%= link_to t("pages.link_text.show"), page, class: "btn btn-primary espace-width-button" %>
+            <% if @espace_current_user == page.creator %>
+                <%= link_to t("pages.link_text.edit"), edit_page_path(page), :class => "btn btn-success espace-width-button" %>
+                <%= render "publish", page: page %>
+            <% end %>
+          </td>
+          <td class="col-md-1"><%= l page.created_at, format: :full_date %></td>
+          <td class="col-md-1"><%= l page.updated_at, format: :full_date %></td>
+          <td class="col-md-1"><%= l page.published_at, format: :full_date unless page.published_at.nil? %></td>
+          <td class="col-md-1"><%= l page.deleted_at, format: :full_date unless page.deleted_at.nil? %></td>
+          <td class="col-md-1"><%= page.title %></td>
+          <td class="col-md-6 espace-limit-height"><%= Rails.cache.fetch(page.path_cache) { page.text.html_safe } %></td>
+
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+</div>
+

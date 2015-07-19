@@ -1,0 +1,52 @@
+<div class="row">
+  <%= render partial: "espace/pages/notice" %>
+
+  <div class="pull-right">
+    <div>
+      <small>
+        <%= "#{t("pages.created")} #{l @page.created_at, format: :full_date} #{ "par #{@page.creator.fullname}" unless @page.creator.nil?}" %>
+      </small>
+    </div>
+    <div>
+      <small>
+        <%= "#{t("pages.updated")}" "#{l @page.updated_at, format: :full_date} #{ "par #{@page.last_contributor.fullname}" unless @page.last_contributor.nil?}" %>
+      </small>
+    </div>
+    <div>
+      <small>
+        <%= "#{t("pages.published")}" "#{l @page.published_at, format: :full_date}" unless @page.published_at.nil? %>
+      </small>
+    </div>
+    <div>
+      <small>
+        <%= "#{t("pages.deleted")}" "#{l @page.deleted_at, format: :full_date} #{ "par #{@page.destructor.fullname}" unless @page.destructor.nil?}" unless @page.deleted_at.nil? %>
+      </small>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <h3><%= @page.title %></h3>
+  <%= Rails.cache.fetch(@page.path_cache) do
+    @page.text.html_safe
+  end %>
+  <% if @espace_current_user == @page.creator %>
+      <div class="hidden-print row">
+        <%= link_to t("pages.link_text.list"), pages_path, :class => "btn btn-default" %>
+        <%= link_to t("pages.link_text.edit"), edit_page_path(@page), :class => "btn btn-success" %>
+        <%= render "delete_dialog", page: @page %>
+        <%#= render "publish", page: @page%>
+      </div>
+  <% end %>
+</div>
+
+
+
+<div class="row">
+  <%= render @page.comments %>
+
+  <%= render "espace/comments/form" %>
+</div>
