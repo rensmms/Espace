@@ -13,7 +13,7 @@ gemspec
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 
-gem 'jquery-rails', '~>2.2.1'
+gem 'jquery-rails', '~> 2.2.1'
 gem 'ckeditor', '~> 4.1.2'
 gem 'paperclip', '~> 4.3.0'
 gem 'sass-rails', '~> 5.0'
