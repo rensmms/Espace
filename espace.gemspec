@@ -5,7 +5,7 @@ require "espace/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name = "Espace"
+  s.name = "espace"
   s.version = Espace::VERSION
   s.authors = ["olivier"]
   s.email = ["olivier@example.com"]
@@ -18,5 +18,5 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 4.2.3"
-  s.add_development_dependency "mysql2"
+  s.add_development_dependency "mysql2", '~> 0'
 end
